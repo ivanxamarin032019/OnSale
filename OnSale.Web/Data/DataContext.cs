@@ -17,12 +17,11 @@ namespace OnSale.Web.Data
 
         public DbSet<Country> Countries { get; set; }
 
-         public DbSet<Department> Departments { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
-
 
         public DbSet<Product> Products { get; set; }
 
