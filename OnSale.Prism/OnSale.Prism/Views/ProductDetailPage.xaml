@@ -8,7 +8,8 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
              Title="{Binding Title}"
              ios:Page.UseSafeArea="true"
-             prism:ViewModelLocator.AutowireViewModel="True">
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource ColorBackground}">
 
     <StackLayout Padding="5">
         <ScrollView>
