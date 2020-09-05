@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OnSale.Prism.Views.ProductDetailPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:i18n="clr-namespace:OnSale.Prism.Helpers"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="true"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource ColorBackground}">
+
+    <StackLayout Padding="5">
+        <ScrollView>
+            <StackLayout>
+                <syncfusion:SfRotator EnableAutoPlay="True"
+                                      EnableLooping="True"
+                                      HeightRequest="300"
+                                      ItemsSource="{Binding Images}"
+                                      NavigationDelay="5000"
+                                      NavigationDirection="Horizontal"
+                                      NavigationStripMode="Thumbnail"
+                                      NavigationStripPosition="Bottom">
+                    <syncfusion:SfRotator.ItemTemplate>
+                        <DataTemplate>
+                            <ffimageloading:CachedImage Aspect="AspectFit"
+                                                        CacheDuration="50"
+                                                        DownsampleToViewSize="true"
+                                                        ErrorPlaceholder="ErrorImage"
+                                                        HeightRequest="300"
+                                                        LoadingPlaceholder="LoaderImage"
+                                                        RetryCount="3"
+                                                        RetryDelay="600"
+                                                        Source="{Binding ImageFullPath}" />
+                        </DataTemplate>
+                    </syncfusion:SfRotator.ItemTemplate>
+                </syncfusion:SfRotator>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Name}" />
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="{Binding Product.Name}" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Description}" />
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Product.Description}" />
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Price}" />
+                    <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Product.Price, StringFormat='{0:C2}'}" />
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Category}" />
+                    <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding Product.Category.Name}" />
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate IsStarred}"
+                           VerticalOptions="Center" />
+                    <CheckBox Grid.Row="4"
+                              Grid.Column="1"
+                              HorizontalOptions="Start"
+                              IsChecked="{Binding Product.IsStarred}"
+                              IsEnabled="False" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        <Button 
+                Command="{Binding AddToCartBinding}"
+                Text="{i18n:Translate AddToCart}"
+                VerticalOptions="EndAndExpand" />
+    </StackLayout>
+</ContentPage>
+
+
