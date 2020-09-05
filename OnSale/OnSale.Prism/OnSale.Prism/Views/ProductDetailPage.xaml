@@ -90,8 +90,7 @@
                 </Grid>
             </StackLayout>
         </ScrollView>
-        <Button 
-                Command="{Binding AddToCartBinding}"
+        <Button Command="{Binding AddToCartBinding}"
                 Text="{i18n:Translate AddToCart}"
                 VerticalOptions="EndAndExpand" />
     </StackLayout>

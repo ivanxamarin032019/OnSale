@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using OnSale.Common.Request;
 using OnSale.Common.Responses;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,7 @@ namespace OnSale.Common.Services
     public class ApiService : IApiService
     {
 
-        async Task<Response> IApiService.GetListAsync<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller)
+        public async Task<Response> GetListAsync<T>(string urlBase, string servicePrefix, string controller)
         {
             try
             {
@@ -53,6 +51,46 @@ namespace OnSale.Common.Services
             }
         }
 
-    }
+        public async Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, TokenRequest request)
+        {
+            try
+            {
+                string requestString = JsonConvert.SerializeObject(request);
+                StringContent content = new StringContent(requestString, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
 
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(result);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = token
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
+
+    }
 }
