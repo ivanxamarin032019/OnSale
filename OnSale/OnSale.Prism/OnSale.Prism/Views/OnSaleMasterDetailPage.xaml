@@ -2,9 +2,9 @@
 <MasterDetailPage x:Class="OnSale.Prism.Views.OnSaleMasterDetailPage"
                   xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:prism="http://prismlibrary.com"
-                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" 
                   xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                  xmlns:prism="http://prismlibrary.com"
                   prism:ViewModelLocator.AutowireViewModel="True">
 
     <MasterDetailPage.Master>
@@ -21,16 +21,15 @@
 
             <StackLayout Padding="20">
                 <StackLayout Orientation="Horizontal">
-                    <Image HeightRequest="80"
-                            Source="onsale"/>
-                    <ffimageloading:CachedImage Aspect="AspectFill"
-                                    Source="{Binding User.ImageFullPath}" 
-                                    CacheDuration= "50"
-                                    HeightRequest="100"
-                                    Margin="5"
-                                    RetryCount= "3"
-                                    RetryDelay= "600"
-                                    WidthRequest="100">
+                    <Image HeightRequest="80" Source="onsale" />
+                    <ffimageloading:CachedImage Margin="5"
+                                                Aspect="AspectFill"
+                                                CacheDuration="50"
+                                                HeightRequest="100"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                Source="{Binding User.ImageFullPath}"
+                                                WidthRequest="100">
                         <ffimageloading:CachedImage.Transformations>
                             <fftransformations:CircleTransformation />
                         </ffimageloading:CachedImage.Transformations>
