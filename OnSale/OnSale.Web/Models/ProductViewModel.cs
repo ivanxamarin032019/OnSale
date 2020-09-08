@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using OnSale.Common.Entities;
+using OnSale.Web.Data.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,7 +17,7 @@ namespace OnSale.Web.Models
         public IFormFile ImageFile { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }
-        
+
         [Display(Name = "Price")]
         [MaxLength(12)]
         [RegularExpression(@"^\d+([\.\,]?\d+)?$", ErrorMessage = "Use only numbers and . or , to put decimals")]
