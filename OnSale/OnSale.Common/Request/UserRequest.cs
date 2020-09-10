@@ -35,7 +35,7 @@ namespace OnSale.Common.Request
         public byte[] ImageArray { get; set; }
 
         public string PasswordConfirm { get; set; }
-
+        public string PhoneNumber { get; set; }
     }
 
 }
