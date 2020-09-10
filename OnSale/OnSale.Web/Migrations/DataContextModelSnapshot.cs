@@ -244,6 +244,8 @@ namespace OnSale.Web.Migrations
 
                     b.Property<int>("OrderStatus");
 
+                    b.Property<int>("PaymentMethod");
+
                     b.Property<string>("Remarks");
 
                     b.Property<string>("UserId");

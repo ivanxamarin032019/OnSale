@@ -24,7 +24,7 @@ namespace OnSale.Common.Responses
 
         public string ImageFullPath => ImageId == Guid.Empty
           ? $"https://onsaleivan.azurewebsites.net/images/noimage.png"
-          : $"https://onsaledemo.blob.core.windows.net/products/{ImageId}";
+          : $"https://onsaledemo.blob.core.windows.net/users/{ImageId}";
 
         public UserType UserType { get; set; }
 

@@ -28,11 +28,14 @@ namespace OnSale.Common.Request
         [Required]
         [StringLength(20, MinimumLength = 6)]
         public string Password { get; set; }
-
+        
         [Required]
         public int CityId { get; set; }
 
         public byte[] ImageArray { get; set; }
+
+        public string PasswordConfirm { get; set; }
+
     }
 
 }

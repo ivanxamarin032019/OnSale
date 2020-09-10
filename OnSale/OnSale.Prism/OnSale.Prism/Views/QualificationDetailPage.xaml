@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OnSale.Prism.Views.QualificationDetailPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:OnSale.Prism.Helpers"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="true"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource ColorBackground}">
+
+    <StackLayout Padding="5">
+        <ScrollView>
+            <StackLayout>
+                <rating:SfRating HorizontalOptions="Center"
+                                 IsEnabled="False"
+                                 Precision="Exact"
+                                 Value="{Binding Qualification.Score}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Qualification}"
+                           VerticalOptions="Center" />
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           Text="{Binding Qualification.Score, StringFormat='{0:N2}'}" />
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Date}"
+                           VerticalOptions="Center" />
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           Text="{Binding Qualification.Date, StringFormat='{0:MM/dd/yyyy hh:mm}'}" />
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate Remarks}"
+                           VerticalOptions="Center" />
+                    <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Qualification.Remarks}" />
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>

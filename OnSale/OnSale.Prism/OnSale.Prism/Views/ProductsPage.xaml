@@ -7,11 +7,11 @@
              xmlns:i18n="clr-namespace:OnSale.Prism.Helpers"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
              Title="{Binding Title}"
              ios:Page.UseSafeArea="true"
              prism:ViewModelLocator.AutowireViewModel="True"
              BackgroundColor="{StaticResource ColorBackground}">
-
 
     <AbsoluteLayout>
         <StackLayout Padding="5"
@@ -20,7 +20,6 @@
             <SearchBar Placeholder="{i18n:Translate SearchProduct}"
                        SearchCommand="{Binding SearchCommand}"
                        Text="{Binding Search}" />
-
             <CollectionView ItemsSource="{Binding Products}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" />
@@ -31,7 +30,6 @@
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SelectProductCommand}" />
                             </Grid.GestureRecognizers>
-
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
@@ -54,6 +52,10 @@
                                        LineBreakMode="TailTruncation"
                                        Text="{Binding Price, StringFormat='{0:C2}'}"
                                        VerticalOptions="End" />
+                                <rating:SfRating IsEnabled="False"
+                                                 ItemSize="20"
+                                                 Precision="Exact"
+                                                 Value="{Binding Qualification}" />
                             </StackLayout>
                             <Image Grid.Column="2" Source="ic_more_vert" />
                         </Grid>
@@ -73,4 +75,5 @@
                                        ViewBoxHeight="80"
                                        ViewBoxWidth="80" />
     </AbsoluteLayout>
+
 </ContentPage>

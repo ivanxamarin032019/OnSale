@@ -203,13 +203,19 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>18.2.0.56</Version>
+      <Version>18.2.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
       <Version>18.2.0.55</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRating">
+      <Version>18.2.0.57</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfRotator">
       <Version>18.2.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
@@ -217,7 +223,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
     <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.3.2" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
   </ItemGroup>
@@ -257,6 +263,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\ic_shopping_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\onsale_splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_card_giftcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_star_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_add_circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

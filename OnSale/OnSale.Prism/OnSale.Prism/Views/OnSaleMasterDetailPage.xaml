@@ -20,23 +20,22 @@
             </ContentPage.Padding>
 
             <StackLayout Padding="20">
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
                     <Image HeightRequest="80" Source="onsale" />
                     <ffimageloading:CachedImage Margin="5"
-                                                Aspect="AspectFill"
+                                                Aspect="AspectFit"
                                                 CacheDuration="50"
-                                                HeightRequest="100"
+                                                HeightRequest="150"
                                                 RetryCount="3"
                                                 RetryDelay="600"
                                                 Source="{Binding User.ImageFullPath}"
-                                                WidthRequest="100">
+                                                WidthRequest="150">
                         <ffimageloading:CachedImage.Transformations>
                             <fftransformations:CircleTransformation />
                         </ffimageloading:CachedImage.Transformations>
                     </ffimageloading:CachedImage>
                 </StackLayout>
 
-                <Image HeightRequest="150" Source="OnSale" />
                 <Label FontAttributes="Bold"
                        FontSize="Large"
                        Text="{Binding User.FullName}" />

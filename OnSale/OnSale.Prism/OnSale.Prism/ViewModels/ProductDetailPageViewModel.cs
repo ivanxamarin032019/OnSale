@@ -13,7 +13,7 @@ namespace OnSale.Prism.ViewModels
 
         public ProductDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = Languages.Products;
+            Title = Languages.Details;
         }
 
         public ProductResponse Product
